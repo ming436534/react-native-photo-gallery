@@ -70,8 +70,10 @@ export class Pagination extends Component {
 const styles = {
   container: {
     position: 'absolute',
-    bottom: 0,
-    height: 64,
+    bottom: 10,
+    height: 104,
+    paddingVertical: 10,
+    opacity: 0.8,
     flex: 1,
   },
   subContainer: {

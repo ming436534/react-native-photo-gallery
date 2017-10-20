@@ -79,7 +79,7 @@ export default class Gallery extends Component {
     };
   };
 
-  goTo({ index, animated = true, pressEvent = {} }, next) {
+  goTo = ({ index, animated = true, pressEvent = {} }, next) => {
     this.setState({
       index,
       pressEvent,
@@ -170,10 +170,8 @@ export default class Gallery extends Component {
       ...StyleSheet.absoluteFillObject,
       backgroundColor,
       position: 'absolute',
-      top: this.scale.interpolate({
-        inputRange: [0, 1],
-        outputRange: [this.getPosition('top'), 0],
-      }),
+      top: 0,
+      bottom: 0,
       left: this.scale.interpolate({
         inputRange: [0, 1],
         outputRange: [this.getPosition('left'), 0],
@@ -235,6 +233,8 @@ export default class Gallery extends Component {
           goTo={this.goTo}
           backgroundColor={backgroundColor}
           containerStyle={{
+            width,
+            alpha: 0.7,
             transform: [
               {
                 translateY: this.pagination.interpolate({

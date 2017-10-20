@@ -20,6 +20,8 @@ class GalleryList extends PureComponent {
 
     this.state = {
       imageSize: width / imagesPerRow,
+      flatListRef: null,
+      contentHeight: -1,
     };
   }
 
@@ -41,11 +43,35 @@ class GalleryList extends PureComponent {
     );
   };
 
+  componentWillUpdate = () => {
+    const { contentHeight, flatListRef } = this.state;
+    if (contentHeight > 0 && flatListRef) {
+      // flatListRef.scrollToOffset({
+      //   animated: false,
+      //   offset: contentHeight / 2,
+      // });
+    }
+  }
+
+  onFlatListReady = (r) => {
+    this.setState({
+      flatListRef: r,
+    });
+  }
+
+  onListContentSizeChanged = (w, h) => {
+    this.setState({
+      contentHeight: h,
+    });
+  }
+
   render() {
     const { data, imagesPerRow } = this.props;
 
     return (
       <FlatList
+        ref={this.onFlatListReady}
+        onContentSizeChange={this.onListContentSizeChanged}
         data={data}
         renderItem={this.renderItem}
         keyExtractor={item => item.id}
@@ -58,7 +84,7 @@ class GalleryList extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     flexDirection: 'column',
   },
 });

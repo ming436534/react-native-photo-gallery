@@ -38,9 +38,9 @@ export class Slide extends PureComponent {
 const styles = StyleSheet.create({
   photoViewContainer: {
     alignItems: 'center',
-    top: -32,
+    // top: -32,
     justifyContent: 'center',
     width,
-    height: height - 128,
+    height: height,
   },
 });
