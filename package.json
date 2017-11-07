@@ -23,6 +23,6 @@
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
-    "react-native-photo-view": "https://github.com/alwx/react-native-photo-view.git#d0852e8e6445832677d70ce0bc945f27576f3811"
+    "react-native-photo-view": "https://github.com/ming436534/react-native-photo-view.git#d0852e8e6445832677d70ce0bc945f27576f3811"
   }
 }
